@@ -1,0 +1,114 @@
+import { SectionTitle } from "@/components/section-title";
+import { ListRow } from "@/components/list-row";
+import { ProjectCard } from "@/components/project-card";
+import { Dock } from "@/components/dock";
+import { profile, about, work, education, skills, projects } from "@/lib/data";
+
+export default function Home() {
+  return (
+    <main className="relative z-[1] mx-auto max-w-[680px] px-7 pb-16 pt-16">
+      {/* HERO */}
+      <section className="mb-[52px] flex items-center justify-between gap-6 pt-2">
+        <div>
+          <h1 className="font-display text-[40px] font-black uppercase leading-[1.05] tracking-[1px] text-white hero-glow">
+            HI, I&apos;M{" "}
+            <span className="text-cyber-yellow neon-yellow">
+              {profile.name.toUpperCase()}_
+            </span>
+          </h1>
+          <p className="mt-3.5 max-w-[360px] text-[17px] font-medium leading-[1.5] text-muted">
+            {profile.taglineBefore}
+            <span className="text-cyber-cyan">{profile.taglineHighlight}</span>
+            {profile.taglineAfter}
+          </p>
+        </div>
+        <div
+          className="h-[120px] w-[120px] shrink-0 rounded-full p-[3px] shadow-[0_0_28px_rgba(0,234,255,0.45),0_0_48px_rgba(255,43,214,0.3)]"
+          style={{
+            background:
+              "conic-gradient(from 180deg, var(--cyan), var(--mag), var(--yellow), var(--cyan))",
+          }}
+        >
+          <div className="flex h-full w-full items-center justify-center rounded-full bg-[#080a14] font-display text-[34px] font-black tracking-[1px] text-[#eafcff] neon-cyan">
+            {profile.initials}
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section className="mb-[52px]">
+        <SectionTitle>About</SectionTitle>
+        <p className="text-base font-medium leading-[1.65] text-muted">{about}</p>
+      </section>
+
+      {/* WORK EXPERIENCE */}
+      <section className="mb-[52px]">
+        <SectionTitle>Work Experience</SectionTitle>
+        {work.map((entry) => (
+          <ListRow key={entry.title} {...entry} />
+        ))}
+      </section>
+
+      {/* EDUCATION */}
+      <section className="mb-[52px]">
+        <SectionTitle>Education</SectionTitle>
+        {education.map((entry) => (
+          <ListRow key={entry.title} {...entry} />
+        ))}
+      </section>
+
+      {/* SKILLS */}
+      <section className="mb-[52px]">
+        <SectionTitle>Skills</SectionTitle>
+        <div className="flex flex-wrap gap-2.5">
+          {skills.map((skill) => (
+            <span
+              key={skill}
+              className="border border-[rgba(0,234,255,0.22)] bg-[rgba(0,234,255,0.05)] px-[11px] py-[5px] font-mono text-xs uppercase tracking-[1px] text-cyber-cyan shadow-[inset_0_0_12px_rgba(0,234,255,0.08)] clip-corner"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* PROJECTS */}
+      <section className="mb-[52px] text-center">
+        <span className="mb-4 inline-block border border-[rgba(255,43,214,0.4)] bg-[rgba(255,43,214,0.07)] px-3.5 py-[5px] font-mono text-xs uppercase tracking-[2px] text-cyber-magenta shadow-[0_0_16px_rgba(255,43,214,0.25)] clip-corner">
+          My Projects
+        </span>
+        <h2 className="font-display text-[30px] font-black uppercase tracking-[1px] text-white neon-cyan">
+          Check out my latest work
+        </h2>
+        <p className="mx-auto mt-3 max-w-[460px] text-base font-medium leading-[1.55] text-muted">
+          I&apos;ve worked on a range of projects, from quick experiments to production web
+          apps. Here are a few of my favorites.
+        </p>
+        <div className="mt-[30px] grid grid-cols-2 gap-[18px] text-left">
+          {projects.map((project) => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="mb-[52px] text-center">
+        <span className="mb-4 inline-block border border-[rgba(0,234,255,0.4)] bg-[rgba(0,234,255,0.07)] px-3.5 py-[5px] font-mono text-xs uppercase tracking-[2px] text-cyber-cyan shadow-[0_0_16px_rgba(0,234,255,0.25)] clip-corner">
+          Contact
+        </span>
+        <h2 className="font-display text-[34px] font-black uppercase tracking-[1px] text-white neon-cyan">
+          Get in Touch
+        </h2>
+        <p className="mx-auto mt-3 max-w-[420px] text-base font-medium leading-[1.55] text-muted">
+          Want to chat? Send me a{" "}
+          <a href="#" className="border-b border-cyber-cyan text-cyber-cyan neon-cyan">
+            direct message
+          </a>{" "}
+          and I&apos;ll respond whenever I can.
+        </p>
+      </section>
+
+      <Dock />
+    </main>
+  );
+}
