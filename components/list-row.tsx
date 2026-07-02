@@ -10,7 +10,7 @@ export function ListRow({ letter, gradient, title, sub, date }: ListEntry) {
         {letter}
       </div>
       <div className="flex-1">
-        <div className="text-base font-bold tracking-[0.3px] text-[#e9f6ff]">{title}</div>
+        <div className="text-base font-bold tracking-[0.3px] text-bright">{title}</div>
         <div className="text-sm font-medium text-muted">{sub}</div>
       </div>
       <div className="whitespace-nowrap font-mono text-[12.5px] uppercase text-cyber-cyan/85">

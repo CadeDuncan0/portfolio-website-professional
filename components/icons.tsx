@@ -78,3 +78,9 @@ export const Sun = ({ className }: IconProps) => (
     <path d="m19.07 4.93-1.41 1.41" />
   </svg>
 );
+
+export const Moon = ({ className }: IconProps) => (
+  <svg className={className} {...base}>
+    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" />
+  </svg>
+);

@@ -3,26 +3,81 @@
 @tailwind utilities;
 
 :root {
+  /* Bright neon accents — constant across themes (the cyberpunk identity;
+     used for glows and the avatar/logo gradients). */
   --cyan: #00eaff;
   --mag: #ff2bd6;
   --yellow: #fcee0a;
+
+  /* Neon accent channels used as text/border colors. Dimmed in the light
+     theme so they stay legible on light surfaces. Consumed via the tailwind
+     `cyber.*` colors as rgb(var(--*-ink) / <alpha>). */
+  --cyan-ink: 0 234 255;
+  --mag-ink: 255 43 214;
+  --yellow-ink: 252 238 10;
+
+  /* Surfaces & structure */
+  --bg: #05060c;
+  --wash-mag: rgba(255, 43, 214, 0.13);
+  --wash-cyan: rgba(0, 234, 255, 0.13);
+  --wash-yellow: rgba(252, 238, 10, 0.06);
+  --panel: #080a14;
+  --surface: rgba(12, 16, 30, 0.7);
+  --grid: rgba(0, 234, 255, 0.05);
+
+  /* Borders & fills */
+  --edge: rgba(0, 234, 255, 0.22);
+  --edge-soft: rgba(0, 234, 255, 0.1);
+  --fill: rgba(0, 234, 255, 0.05);
+
+  /* Text */
+  --ink: #d4e8f4;
+  --strong: #ffffff;
+  --bright: #eafcff;
+  --muted: #6b7d96;
+}
+
+[data-theme="light"] {
+  --cyan-ink: 5 112 130;
+  --mag-ink: 194 26 159;
+  --yellow-ink: 138 105 0;
+
+  --bg: #e7ebf4;
+  --wash-mag: rgba(255, 43, 214, 0.1);
+  --wash-cyan: rgba(0, 200, 234, 0.12);
+  --wash-yellow: rgba(252, 214, 10, 0.12);
+  --panel: #ffffff;
+  --surface: rgba(255, 255, 255, 0.72);
+  --grid: rgba(5, 112, 130, 0.08);
+
+  --edge: rgba(5, 112, 130, 0.32);
+  --edge-soft: rgba(5, 112, 130, 0.16);
+  --fill: rgba(5, 112, 130, 0.08);
+
+  --ink: #2b3652;
+  --strong: #0b1120;
+  --bright: #0a2731;
+  --muted: #58657f;
 }
 
 html,
 body {
-  background: #05060c;
+  background: var(--bg);
 }
 
 body {
   position: relative;
   min-height: 100vh;
   overflow-x: hidden;
-  color: #d4e8f4;
+  color: var(--ink);
   background:
-    radial-gradient(1100px 560px at 82% -8%, rgba(255, 43, 214, 0.13), transparent 60%),
-    radial-gradient(960px 680px at -12% 8%, rgba(0, 234, 255, 0.13), transparent 55%),
-    radial-gradient(700px 500px at 50% 120%, rgba(252, 238, 10, 0.06), transparent 60%),
-    #05060c;
+    radial-gradient(1100px 560px at 82% -8%, var(--wash-mag), transparent 60%),
+    radial-gradient(960px 680px at -12% 8%, var(--wash-cyan), transparent 55%),
+    radial-gradient(700px 500px at 50% 120%, var(--wash-yellow), transparent 60%),
+    var(--bg);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 /* perspective grid backdrop */
@@ -33,8 +88,8 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(0, 234, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 234, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size: 42px 42px;
   -webkit-mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 85%);
   mask-image: radial-gradient(circle at 50% 30%, #000 0%, transparent 85%);
@@ -53,6 +108,42 @@ body::after {
     rgba(0, 0, 0, 0) 0 2px,
     rgba(0, 0, 0, 0.18) 2px 3px
   );
+}
+
+/*
+ * Firefox performance fallback.
+ *
+ * The full-viewport grid (body::before) and scanline (body::after) overlays
+ * lean on features Firefox rasterizes far less efficiently than Chromium:
+ *   - a radial-gradient mask-image over a tiled linear-gradient, and
+ *   - a fine repeating-linear-gradient on a fixed, opacity-composited layer.
+ * On Firefox these repaint the whole viewport during scroll and cause heavy
+ * lag. This block swaps them for lighter equivalents. `-moz-appearance` is a
+ * Firefox-only property, so the query matches Firefox and leaves Chromium
+ * (which keeps the originals above) untouched.
+ */
+@supports (-moz-appearance: none) {
+  /* One fewer background layer to rasterize over the tall, scrolling body. */
+  body {
+    background:
+      radial-gradient(1000px 560px at 82% -8%, var(--wash-mag), transparent 60%),
+      radial-gradient(900px 640px at -12% 8%, var(--wash-cyan), transparent 55%),
+      var(--bg);
+  }
+
+  /* Drop the radial mask (the expensive part) and pre-fade the grid via a
+     lower, uniform opacity so it still reads without per-frame masking. */
+  body::before {
+    -webkit-mask-image: none;
+    mask-image: none;
+    opacity: 0.35;
+  }
+
+  /* The fixed repeating-gradient scanlines are the biggest Firefox jank
+     source; disable them there. */
+  body::after {
+    display: none;
+  }
 }
 
 @layer utilities {

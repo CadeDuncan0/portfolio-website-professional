@@ -9,12 +9,19 @@ const config: Config = {
     extend: {
       colors: {
         cyber: {
-          cyan: "#00eaff",
-          magenta: "#ff2bd6",
-          yellow: "#fcee0a",
+          cyan: "rgb(var(--cyan-ink) / <alpha-value>)",
+          magenta: "rgb(var(--mag-ink) / <alpha-value>)",
+          yellow: "rgb(var(--yellow-ink) / <alpha-value>)",
         },
-        ink: "#d4e8f4",
-        muted: "#6b7d96",
+        ink: "var(--ink)",
+        strong: "var(--strong)",
+        bright: "var(--bright)",
+        muted: "var(--muted)",
+        surface: "var(--surface)",
+        panel: "var(--panel)",
+        edge: "var(--edge)",
+        "edge-soft": "var(--edge-soft)",
+        fill: "var(--fill)",
       },
       fontFamily: {
         display: ["var(--font-orbitron)", "sans-serif"],

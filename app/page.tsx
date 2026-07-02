@@ -10,7 +10,7 @@ export default function Home() {
       {/* HERO */}
       <section className="mb-[52px] flex items-center justify-between gap-6 pt-2">
         <div>
-          <h1 className="font-display text-[40px] font-black uppercase leading-[1.05] tracking-[1px] text-white hero-glow">
+          <h1 className="font-display text-[40px] font-black uppercase leading-[1.05] tracking-[1px] text-strong hero-glow">
             HI, I&apos;M{' '}
             <span className="text-cyber-yellow neon-yellow">{profile.name.toUpperCase()}</span>
           </h1>
@@ -27,7 +27,7 @@ export default function Home() {
               'conic-gradient(from 180deg, var(--cyan), var(--mag), var(--yellow), var(--cyan))',
           }}
         >
-          <div className="flex h-full w-full items-center justify-center rounded-full bg-[#080a14] font-display text-[34px] font-black tracking-[1px] text-[#eafcff] neon-cyan">
+          <div className="flex h-full w-full items-center justify-center rounded-full bg-panel font-display text-[34px] font-black tracking-[1px] text-bright neon-cyan">
             {profile.initials}
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function Home() {
           {skills.map((skill) => (
             <span
               key={skill}
-              className="border border-[rgba(0,234,255,0.22)] bg-[rgba(0,234,255,0.05)] px-[11px] py-[5px] font-mono text-xs uppercase tracking-[1px] text-cyber-cyan shadow-[inset_0_0_12px_rgba(0,234,255,0.08)] clip-corner"
+              className="border border-edge bg-fill px-[11px] py-[5px] font-mono text-xs uppercase tracking-[1px] text-cyber-cyan shadow-[inset_0_0_12px_rgba(0,234,255,0.08)] clip-corner"
             >
               {skill}
             </span>
@@ -72,10 +72,10 @@ export default function Home() {
 
       {/* PROJECTS */}
       <section className="mb-[52px] text-center">
-        <span className="mb-4 inline-block border border-[rgba(255,43,214,0.4)] bg-[rgba(255,43,214,0.07)] px-3.5 py-[5px] font-mono text-xs uppercase tracking-[2px] text-cyber-magenta shadow-[0_0_16px_rgba(255,43,214,0.25)] clip-corner">
+        <span className="mb-4 inline-block border border-cyber-magenta/40 bg-cyber-magenta/[0.07] px-3.5 py-[5px] font-mono text-xs uppercase tracking-[2px] text-cyber-magenta shadow-[0_0_16px_rgba(255,43,214,0.25)] clip-corner">
           My Projects
         </span>
-        <h2 className="font-display text-[30px] font-black uppercase tracking-[1px] text-white neon-cyan">
+        <h2 className="font-display text-[30px] font-black uppercase tracking-[1px] text-strong neon-cyan">
           Check out my latest work
         </h2>
         <p className="mx-auto mt-3 max-w-[460px] text-base font-medium leading-[1.55] text-muted">
@@ -91,10 +91,10 @@ export default function Home() {
 
       {/* CONTACT */}
       <section className="mb-[52px] text-center">
-        <span className="mb-4 inline-block border border-[rgba(0,234,255,0.4)] bg-[rgba(0,234,255,0.07)] px-3.5 py-[5px] font-mono text-xs uppercase tracking-[2px] text-cyber-cyan shadow-[0_0_16px_rgba(0,234,255,0.25)] clip-corner">
+        <span className="mb-4 inline-block border border-cyber-cyan/40 bg-cyber-cyan/[0.07] px-3.5 py-[5px] font-mono text-xs uppercase tracking-[2px] text-cyber-cyan shadow-[0_0_16px_rgba(0,234,255,0.25)] clip-corner">
           Contact
         </span>
-        <h2 className="font-display text-[34px] font-black uppercase tracking-[1px] text-white neon-cyan">
+        <h2 className="font-display text-[34px] font-black uppercase tracking-[1px] text-strong neon-cyan">
           Get in Touch
         </h2>
         <p className="mx-auto mt-3 max-w-[420px] text-base font-medium leading-[1.55] text-muted">

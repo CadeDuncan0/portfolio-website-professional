@@ -1,15 +1,16 @@
-import { Home, Github, Linkedin, Mail, Sun } from '@/components/icons'
+import { Home, Github, Linkedin, Mail } from '@/components/icons'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { socials } from '@/lib/data'
 
 const iconClass =
-  'flex h-[38px] w-[38px] items-center justify-center rounded-full border border-[rgba(0,234,255,0.1)] bg-[rgba(0,234,255,0.04)] text-cyber-cyan transition-colors hover:border-cyber-cyan/40 hover:bg-cyber-cyan/10'
+  'flex h-[38px] w-[38px] items-center justify-center rounded-full border border-edge-soft bg-fill text-cyber-cyan transition-colors hover:border-cyber-cyan/40 hover:bg-cyber-cyan/10'
 
-const Divider = () => <span className="mx-1 h-6 w-px bg-[rgba(0,234,255,0.22)]" />
+const Divider = () => <span className="mx-1 h-6 w-px bg-edge" />
 
 export function Dock() {
   return (
     <div className="fixed bottom-5 left-1/2 z-50 -translate-x-1/2">
-      <div className="inline-flex items-center gap-1.5 rounded-[30px] border border-[rgba(0,234,255,0.22)] bg-[rgba(12,16,30,0.7)] px-3.5 py-[9px] shadow-[0_0_24px_rgba(0,234,255,0.22),inset_0_0_18px_rgba(0,234,255,0.06)] backdrop-blur-md">
+      <div className="inline-flex items-center gap-1.5 rounded-[30px] border border-edge bg-surface px-3.5 py-[9px] shadow-[0_0_24px_rgba(0,234,255,0.22),inset_0_0_18px_rgba(0,234,255,0.06)] backdrop-blur-md">
         <a href="/#" className={iconClass} aria-label="Home">
           <Home className="h-[18px] w-[18px]" />
         </a>
@@ -36,13 +37,7 @@ export function Dock() {
           <Mail className="h-[18px] w-[18px]" />
         </a>
         <Divider />
-        <button
-          type="button"
-          aria-label="Toggle theme"
-          className="flex h-[38px] w-[38px] items-center justify-center rounded-full border border-[rgba(252,238,10,0.35)] bg-[rgba(0,234,255,0.04)] text-cyber-yellow shadow-[0_0_14px_rgba(252,238,10,0.3)]"
-        >
-          <Sun className="h-[18px] w-[18px]" />
-        </button>
+        <ThemeToggle />
       </div>
     </div>
   )
