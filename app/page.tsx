@@ -1,20 +1,18 @@
-import { SectionTitle } from "@/components/section-title";
-import { ListRow } from "@/components/list-row";
-import { ProjectCard } from "@/components/project-card";
-import { Dock } from "@/components/dock";
-import { profile, about, work, education, skills, projects } from "@/lib/data";
+import { SectionTitle } from '@/components/section-title'
+import { ListRow } from '@/components/list-row'
+import { ProjectCard } from '@/components/project-card'
+import { Dock } from '@/components/dock'
+import { profile, about, work, education, skills, projects, socials } from '@/lib/data'
 
 export default function Home() {
   return (
-    <main className="relative z-[1] mx-auto max-w-[680px] px-7 pb-16 pt-16">
+    <main className="relative z-[1] mx-auto max-w-[680px] px-7 pb-32 pt-16">
       {/* HERO */}
       <section className="mb-[52px] flex items-center justify-between gap-6 pt-2">
         <div>
           <h1 className="font-display text-[40px] font-black uppercase leading-[1.05] tracking-[1px] text-white hero-glow">
-            HI, I&apos;M{" "}
-            <span className="text-cyber-yellow neon-yellow">
-              {profile.name.toUpperCase()}_
-            </span>
+            HI, I&apos;M{' '}
+            <span className="text-cyber-yellow neon-yellow">{profile.name.toUpperCase()}</span>
           </h1>
           <p className="mt-3.5 max-w-[360px] text-[17px] font-medium leading-[1.5] text-muted">
             {profile.taglineBefore}
@@ -26,7 +24,7 @@ export default function Home() {
           className="h-[120px] w-[120px] shrink-0 rounded-full p-[3px] shadow-[0_0_28px_rgba(0,234,255,0.45),0_0_48px_rgba(255,43,214,0.3)]"
           style={{
             background:
-              "conic-gradient(from 180deg, var(--cyan), var(--mag), var(--yellow), var(--cyan))",
+              'conic-gradient(from 180deg, var(--cyan), var(--mag), var(--yellow), var(--cyan))',
           }}
         >
           <div className="flex h-full w-full items-center justify-center rounded-full bg-[#080a14] font-display text-[34px] font-black tracking-[1px] text-[#eafcff] neon-cyan">
@@ -81,8 +79,8 @@ export default function Home() {
           Check out my latest work
         </h2>
         <p className="mx-auto mt-3 max-w-[460px] text-base font-medium leading-[1.55] text-muted">
-          I&apos;ve worked on a range of projects, from quick experiments to production web
-          apps. Here are a few of my favorites.
+          I&apos;ve worked on a range of projects, from quick experiments to production web apps.
+          Here are a few of my favorites.
         </p>
         <div className="mt-[30px] grid grid-cols-2 gap-[18px] text-left">
           {projects.map((project) => (
@@ -100,15 +98,18 @@ export default function Home() {
           Get in Touch
         </h2>
         <p className="mx-auto mt-3 max-w-[420px] text-base font-medium leading-[1.55] text-muted">
-          Want to chat? Send me a{" "}
-          <a href="#" className="border-b border-cyber-cyan text-cyber-cyan neon-cyan">
-            direct message
-          </a>{" "}
+          Want to chat? Send me an{' '}
+          <a
+            href={`mailto:${socials.email}`}
+            className="border-b border-cyber-cyan text-cyber-cyan neon-cyan"
+          >
+            email
+          </a>{' '}
           and I&apos;ll respond whenever I can.
         </p>
       </section>
 
       <Dock />
     </main>
-  );
+  )
 }

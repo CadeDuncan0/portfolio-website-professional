@@ -1,120 +1,125 @@
 export const profile = {
-  name: "Jordan",
-  initials: "JD",
+  name: 'Cade',
+  initials: 'CD',
   taglineBefore:
-    "Software engineer building delightful, accessible web applications. I love shipping products and ",
-  taglineHighlight: "learning in public",
-  taglineAfter: ".",
-};
+    'Full-stack software engineer building platforms that retire legacy processes and move real business metrics. I turn ambiguous requirements into ',
+  taglineHighlight: 'products people rely on',
+  taglineAfter: '.',
+}
+
+export const socials = {
+  website: 'https://cadeduncan.com',
+  github: 'https://github.com/CadeDuncan0',
+  linkedin: 'https://www.linkedin.com/in/cade-duncan',
+  email: 'cadeduncan72@gmail.com',
+}
 
 export const about =
-  "I'm a software engineer with a passion for crafting clean, performant interfaces. Over the past few years I've shipped products across startups and larger teams, focusing on design systems, developer experience, and turning ambiguous ideas into polished features.";
+  "I'm a full-stack software engineer at Russell Sigler Inc., where I design and ship internal platforms that replace legacy processes and streamline business-critical workflows. My work spans .NET and React — from an order-intake system processing hundreds of sales orders a month to reusable component libraries and automated reporting pipelines. I care about clean architecture, strong developer experience, and building software that measurably moves the needle for the teams that depend on it."
 
 export type ListEntry = {
-  letter: string;
-  gradient: string;
-  title: string;
-  sub: string;
-  date: string;
-};
+  letter: string
+  gradient: string
+  title: string
+  sub: string
+  date: string
+}
 
 export const work: ListEntry[] = [
   {
-    letter: "N",
-    gradient: "linear-gradient(135deg,#00eaff,#0088ff)",
-    title: "Northwind Labs",
-    sub: "Senior Software Engineer",
-    date: "2023 — Present",
+    letter: 'R',
+    gradient: 'linear-gradient(135deg,#00eaff,#0088ff)',
+    title: 'Russell Sigler Inc.',
+    sub: 'Software Engineer',
+    date: '2025 — Present',
   },
   {
-    letter: "G",
-    gradient: "linear-gradient(135deg,#00ffae,#00b37a)",
-    title: "Globex Corp",
-    sub: "Software Engineer",
-    date: "2021 — 2023",
+    letter: 'R',
+    gradient: 'linear-gradient(135deg,#00ffae,#00b37a)',
+    title: 'Russell Sigler Inc.',
+    sub: 'Software Engineer Intern',
+    date: '2024',
   },
-  {
-    letter: "I",
-    gradient: "linear-gradient(135deg,#fcee0a,#ff9d00)",
-    title: "Initech",
-    sub: "Frontend Developer",
-    date: "2019 — 2021",
-  },
-  {
-    letter: "U",
-    gradient: "linear-gradient(135deg,#ff2bd6,#9b00ff)",
-    title: "Umbrella Co",
-    sub: "Software Engineering Intern",
-    date: "2018 — 2019",
-  },
-];
+]
 
 export const education: ListEntry[] = [
   {
-    letter: "S",
-    gradient: "linear-gradient(135deg,#00eaff,#3366ff)",
-    title: "State University",
-    sub: "B.S. in Computer Science",
-    date: "2015 — 2019",
+    letter: 'C',
+    gradient: 'linear-gradient(135deg,#00eaff,#3366ff)',
+    title: 'California State University, Fullerton',
+    sub: 'B.S. in Computer Science',
+    date: '2023 — 2024',
   },
   {
-    letter: "C",
-    gradient: "linear-gradient(135deg,#ff2bd6,#ff5a5a)",
-    title: "Codeworks Bootcamp",
-    sub: "Full-Stack Web Development",
-    date: "2014 — 2015",
+    letter: 'C',
+    gradient: 'linear-gradient(135deg,#ff2bd6,#ff5a5a)',
+    title: 'Clovis Community College',
+    sub: 'A.S. in Computer Science',
+    date: '2021 — 2023',
   },
-];
+]
 
 export const skills: string[] = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "Python",
-  "Go",
-  "PostgreSQL",
-  "Docker",
-  "Kubernetes",
-  "Tailwind CSS",
-  "AWS",
-];
+  'C#',
+  'TypeScript',
+  'JavaScript',
+  'SQL',
+  'Python',
+  'C++',
+  'ASP.NET Core',
+  'React',
+  'Next.js',
+  'Redux Toolkit',
+  'Supabase',
+  'Vercel',
+  'Godot',
+  'Claude Code',
+  'MCP',
+  'Vitest',
+  'Storybook',
+]
 
 export type Project = {
-  title: string;
-  date: string;
-  desc: string;
-  tags: string[];
-  preview: string;
-};
+  title: string
+  date: string
+  desc: string
+  tags: string[]
+  preview: string
+  website?: string
+  source?: string
+}
 
 export const projects: Project[] = [
   {
-    title: "TaskFlow",
-    date: "Jan 2024 — Present",
-    desc: "A collaborative project management app with real-time boards, drag-and-drop, and keyboard-first navigation.",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "tRPC"],
-    preview: "linear-gradient(135deg,#141a4d,#3a1f6b)",
+    title: 'Order Intake Platform',
+    date: 'Russell Sigler Inc.',
+    desc: 'A full-stack order intake platform that retired the legacy Esker Notes process and now handles hundreds of sales orders each month, consolidating multi-entity transactional workflows, third-party API file delivery, and automated notifications.',
+    tags: ['ASP.NET Core', 'C#', 'SQL', 'Entity Framework'],
+    preview: 'linear-gradient(135deg,#141a4d,#3a1f6b)',
   },
   {
-    title: "DevNotes",
-    date: "Jun 2023 — Dec 2023",
-    desc: "A fast markdown note-taking app with offline sync, full-text search, and a clean distraction-free editor.",
-    tags: ["React", "Tailwind", "IndexedDB"],
-    preview: "linear-gradient(135deg,#0d3433,#1a7a5f)",
+    title: 'Windows 7 Web OS',
+    date: 'Open Source',
+    desc: 'A browser-based recreation of the Windows 7 Aero Glass desktop, featuring a custom window manager with Framer Motion animations, dual-role Supabase authentication, and a 25+ component design system documented in Storybook and guarded by zero-warning CI.',
+    tags: ['Next.js', 'TypeScript', 'Supabase', 'Redux Toolkit'],
+    preview: 'linear-gradient(135deg,#0d3433,#1a7a5f)',
+    source: 'https://github.com/CadeDuncan0/portfolio-website-windows7',
   },
   {
-    title: "ShopKit",
-    date: "Sep 2022 — May 2023",
-    desc: "An open-source e-commerce starter kit with a headless storefront, cart, and Stripe checkout out of the box.",
-    tags: ["Next.js", "Stripe", "Tailwind", "Vercel"],
-    preview: "linear-gradient(135deg,#3a1f0d,#9b5a18)",
+    title: 'Stardew Valley Mods',
+    date: 'Open Source',
+    desc: 'Open-source C# gameplay mods published to Nexus Mods with 96,000+ downloads, using event-driven SMAPI hooks to manage real-time menu state with defensive logic that prevents a game-breaking soft-lock.',
+    tags: ['C#', 'SMAPI', 'Game Modding'],
+    preview: 'linear-gradient(135deg,#3a1f0d,#9b5a18)',
+    website: 'https://www.nexusmods.com/profile/Stingrayss/mods',
+    source: 'https://github.com/CadeDuncan0/StardewValley',
   },
   {
-    title: "InsightAI",
-    date: "Mar 2022 — Aug 2022",
-    desc: "A usage analytics dashboard for LLM apps with cost tracking, latency charts, and exportable reports.",
-    tags: ["React", "Python", "FastAPI", "ClickHouse"],
-    preview: "linear-gradient(135deg,#3a0d2e,#8a1f63)",
+    title: 'Super Mario Bros. NES Recreation',
+    date: 'Personal Project',
+    desc: 'A faithful recreation of the NES-era Super Mario Bros. built in Godot, replicating the original physics, collision detection, and game-state systems.',
+    tags: ['Godot', 'GDScript', 'Game Dev'],
+    preview: 'linear-gradient(135deg,#3a0d2e,#8a1f63)',
+    source: 'https://github.com/CadeDuncan0/Super-Mario-Bros-In-Godot',
   },
-];
+]

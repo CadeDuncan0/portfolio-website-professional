@@ -2,17 +2,24 @@ import type { Project } from "@/lib/data";
 import { Globe, Code } from "@/components/icons";
 
 function LinkButton({
+  href,
   icon,
   children,
 }: {
+  href: string;
   icon: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
-    <span className="inline-flex items-center gap-1.5 border border-[rgba(0,234,255,0.22)] bg-[rgba(0,234,255,0.05)] px-2.5 py-[5px] font-mono text-[11px] uppercase tracking-[1px] text-cyber-cyan clip-corner-sm">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1.5 border border-[rgba(0,234,255,0.22)] bg-[rgba(0,234,255,0.05)] px-2.5 py-[5px] font-mono text-[11px] uppercase tracking-[1px] text-cyber-cyan transition-colors clip-corner-sm hover:border-cyber-cyan/50 hover:bg-cyber-cyan/10"
+    >
       {icon}
       {children}
-    </span>
+    </a>
   );
 }
 
@@ -47,10 +54,20 @@ export function ProjectCard({ project }: { project: Project }) {
             </span>
           ))}
         </div>
-        <div className="mt-[13px] flex gap-2">
-          <LinkButton icon={<Globe className="h-3 w-3" />}>Website</LinkButton>
-          <LinkButton icon={<Code className="h-3 w-3" />}>Source</LinkButton>
-        </div>
+        {(project.website || project.source) && (
+          <div className="mt-[13px] flex gap-2">
+            {project.website && (
+              <LinkButton href={project.website} icon={<Globe className="h-3 w-3" />}>
+                Website
+              </LinkButton>
+            )}
+            {project.source && (
+              <LinkButton href={project.source} icon={<Code className="h-3 w-3" />}>
+                Source
+              </LinkButton>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
