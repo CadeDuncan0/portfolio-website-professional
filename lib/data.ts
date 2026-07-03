@@ -1,10 +1,11 @@
 export const profile = {
   name: 'Cade',
-  initials: 'CD',
   taglineBefore:
-    'Full-stack software engineer building platforms that retire legacy processes and move real business metrics. I turn ambiguous requirements into ',
-  taglineHighlight: 'products people rely on',
+    'Full-stack engineer crafting clean, aesthetic web experiences — and the systems that power them. I turn ideas into ',
+  taglineHighlight: 'interfaces people love to use',
   taglineAfter: '.',
+  // Served from public/imgs — Next.js exposes the public/ dir at the site root.
+  avatar: '/imgs/linkedin-headshot.png',
 }
 
 export const socials = {
